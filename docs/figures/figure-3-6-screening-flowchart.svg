@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1400" width="1160" height="1400" role="img" aria-labelledby="f36title f36desc">
+  <title id="f36title">Screening workflow of NeuroScan for a single image</title>
+  <desc id="f36desc">Flowchart. The selected image is decoded, resized and normalized. If decoding fails, a per-file error is recorded, the batch continues, and the next image is taken. Otherwise a single ONNX forward pass returns logits, the feature map and the head weights. Softmax gives the probability p, which is compared with the threshold tau read from the run configuration, producing one of three verdicts: tumor, no tumor, or manual review when p lies within 0.05 of tau. A class activation map is computed from the same pass. If that map is uniform, the overlay is skipped and the source image is shown uncolored. The probability, verdict, confidence band and processing time are displayed and logged, an optional export is offered, and the workflow moves to the next image or ends the batch.</desc>
+
+  <defs>
+    <marker id="a36" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
+      .yn  { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1160" height="1400" fill="#ffffff"/>
+
+  <rect x="80" y="60" width="500" height="80" rx="40" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <text class="ct" x="330" y="110" text-anchor="middle">Image selected &#8212; single or batch</text>
+
+  <g>
+    <rect x="80" y="175" width="500" height="90" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="ct" x="330" y="217" text-anchor="middle">Decode, resize, normalize</text>
+    <text class="n" x="330" y="247" text-anchor="middle">grayscale to RGB; EXIF applied</text>
+  </g>
+
+  <polygon points="150,355 330,295 510,355 330,415" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+  <text class="ct" x="330" y="363" text-anchor="middle">Decoded?</text>
+
+  <g>
+    <rect x="80" y="450" width="500" height="90" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="330" y="492" text-anchor="middle">One ONNX forward pass</text>
+    <text class="n" x="330" y="522" text-anchor="middle">logits, feature map, head weights</text>
+  </g>
+
+  <g>
+    <rect x="80" y="575" width="500" height="90" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="ct" x="330" y="617" text-anchor="middle">Softmax &#8594; p; compare with &#964;</text>
+    <text class="n" x="330" y="647" text-anchor="middle">threshold from run-config</text>
+  </g>
+
+  <g>
+    <rect x="80" y="700" width="500" height="140" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2.4"/>
+    <rect x="80" y="700" width="9" height="140" rx="4" fill="#d97706" opacity="0.75"/>
+    <text class="ct" x="104" y="740">Verdict</text>
+    <text class="d" x="104" y="776">p &#8805; &#964; &#8594; tumor</text>
+    <text class="d" x="104" y="804">|p &#8722; &#964;| &#8804; 0.05 &#8594; manual review</text>
+    <text class="d" x="104" y="832">p &lt; &#964; &#8594; no tumor</text>
+  </g>
+
+  <g>
+    <rect x="80" y="875" width="500" height="90" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="ct" x="330" y="917" text-anchor="middle">CAM from the same pass</text>
+    <text class="n" x="330" y="947" text-anchor="middle">features &#215; head_w, composited</text>
+  </g>
+
+  <polygon points="150,1060 330,1000 510,1060 330,1120" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+  <text class="ct" x="330" y="1068" text-anchor="middle">Heatmap uniform?</text>
+
+  <g>
+    <rect x="80" y="1155" width="500" height="90" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="ct" x="330" y="1197" text-anchor="middle">Display and log the result</text>
+    <text class="n" x="330" y="1227" text-anchor="middle">export CSV and PNGs on request</text>
+  </g>
+
+  <rect x="80" y="1280" width="500" height="80" rx="40" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <text class="ct" x="330" y="1330" text-anchor="middle">Next image, or end of batch</text>
+
+  <!-- error branch -->
+  <g>
+    <rect x="660" y="290" width="480" height="130" rx="10" fill="#fef2f2" stroke="#fecaca" stroke-width="2.4"/>
+    <text class="ct" x="684" y="336">Per-file error</text>
+    <text class="n" x="684" y="372">Recorded as an error row;</text>
+    <text class="n" x="684" y="402">the batch is not aborted</text>
+  </g>
+  <path d="M 330 415 V 450" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <text class="yn" x="352" y="438">Yes</text>
+  <path d="M 510 355 H 660" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <text class="yn" x="585" y="345" text-anchor="middle">No</text>
+  <path d="M 1140 355 H 1152 V 100 H 580" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="8 7" fill="none" marker-end="url(#a36)"/>
+  <text class="n" x="866" y="90" text-anchor="middle">next image</text>
+
+  <!-- uniform heatmap branch -->
+  <g>
+    <rect x="660" y="995" width="480" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+    <text class="ct" x="684" y="1041">Uniform heatmap</text>
+    <text class="n" x="684" y="1077">Overlay skipped and the</text>
+    <text class="n" x="684" y="1107">source shown uncolored</text>
+  </g>
+  <path d="M 330 1120 V 1155" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <text class="yn" x="352" y="1143">No</text>
+  <path d="M 510 1060 H 660" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <text class="yn" x="585" y="1050" text-anchor="middle">Yes</text>
+  <path d="M 900 1125 V 1200 H 580" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="8 7" fill="none" marker-end="url(#a36)"/>
+  <text class="n" x="900" y="1250" text-anchor="middle">continue</text>
+
+  <path d="M 330 265 V 295" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <path d="M 330 540 V 575" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <path d="M 330 665 V 700" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <path d="M 330 840 V 875" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+  <path d="M 330 965 V 1000" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
+
+  <text class="n" x="580" y="1382" text-anchor="middle">Every step after the forward pass reuses that single pass.</text>
+</svg>

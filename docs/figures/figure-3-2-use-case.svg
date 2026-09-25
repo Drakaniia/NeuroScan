@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1020" width="1160" height="1020" role="img" aria-labelledby="f32title f32desc">
+  <title id="f32title">Use case diagram of NeuroScan</title>
+  <desc id="f32desc">Two actors: the user (researcher, health worker, or clinician) and the local file system. Inside the NeuroScan boundary are ten use cases: open a single image, screen a single image, screen a batch of images from a folder, view the verdict and confidence and threshold, view the class activation mapping heatmap overlay, browse the screening history, export the history as a CSV file, export annotated image copies, clear the screening history, and read the disclaimer. The user is associated with all ten; the file system participates in the four use cases that read or write files. Clinician review is drawn outside the boundary.</desc>
+
+  <defs>
+    <style>
+      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
+      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1160" height="1020" fill="#ffffff"/>
+
+  <!-- legend -->
+  <rect x="16" y="26" width="22" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.8"/>
+  <text class="n" x="46" y="45">User only</text>
+  <rect x="200" y="26" width="22" height="22" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text class="n" x="230" y="45">Also involves the file system</text>
+
+  <!-- boundary -->
+  <rect x="200" y="90" width="760" height="860" rx="16" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-dasharray="11 8"/>
+  <rect x="150" y="72" width="860" height="34" fill="#ffffff"/>
+  <text class="lbl" x="580" y="99" text-anchor="middle">System boundary &#8212; NeuroScan desktop application</text>
+
+  <!-- use cases -->
+  <g>
+    <ellipse cx="580" cy="150" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="t" x="580" y="158" text-anchor="middle">Open a single image</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="234" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="242" text-anchor="middle">Screen a single image</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="318" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="t" x="580" y="326" text-anchor="middle">Screen a batch from a folder</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="402" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="410" text-anchor="middle">View verdict, confidence, threshold</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="486" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="494" text-anchor="middle">View the CAM heatmap overlay</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="570" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="578" text-anchor="middle">Browse the screening history</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="654" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="t" x="580" y="662" text-anchor="middle">Export the history as CSV</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="738" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="t" x="580" y="746" text-anchor="middle">Export annotated image copies</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="822" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="830" text-anchor="middle">Clear the screening history</text>
+  </g>
+  <g>
+    <ellipse cx="580" cy="906" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="t" x="580" y="914" text-anchor="middle">Read the disclaimer</text>
+  </g>
+
+  <!-- primary actor: user -->
+  <g stroke="#334155" stroke-width="2.4" fill="none">
+    <circle cx="95" cy="470" r="22"/>
+    <path d="M 95 492 V 552"/>
+    <path d="M 55 520 H 135"/>
+    <path d="M 95 552 L 68 610"/>
+    <path d="M 95 552 L 122 610"/>
+  </g>
+  <text class="lbl" x="95" y="654" text-anchor="middle">User</text>
+  <text class="n" x="95" y="684" text-anchor="middle">researcher,</text>
+  <text class="n" x="95" y="708" text-anchor="middle">health worker</text>
+  <text class="n" x="95" y="732" text-anchor="middle">or clinician</text>
+
+  <!-- secondary actor: local file system -->
+  <g stroke="#334155" stroke-width="2.4" fill="none">
+    <circle cx="1065" cy="470" r="22"/>
+    <path d="M 1065 492 V 552"/>
+    <path d="M 1025 520 H 1105"/>
+    <path d="M 1065 552 L 1038 610"/>
+    <path d="M 1065 552 L 1092 610"/>
+  </g>
+  <text class="lbl" x="1065" y="654" text-anchor="middle">Local file</text>
+  <text class="lbl" x="1065" y="682" text-anchor="middle">system</text>
+  <text class="n" x="1065" y="712" text-anchor="middle">images in,</text>
+  <text class="n" x="1065" y="736" text-anchor="middle">results out</text>
+
+  <!-- user associations -->
+  <g stroke="#94a3b8" stroke-width="1.8" fill="none">
+    <path d="M 140 520 L 240 150"/>
+    <path d="M 140 520 L 240 234"/>
+    <path d="M 140 520 L 240 318"/>
+    <path d="M 140 520 L 240 402"/>
+    <path d="M 140 520 L 240 486"/>
+    <path d="M 140 520 L 240 570"/>
+    <path d="M 140 520 L 240 654"/>
+    <path d="M 140 520 L 240 738"/>
+    <path d="M 140 520 L 240 822"/>
+    <path d="M 140 520 L 240 906"/>
+  </g>
+
+  <!-- file system associations -->
+  <g stroke="#a5b4fc" stroke-width="2.2" fill="none">
+    <path d="M 1020 520 L 920 150"/>
+    <path d="M 1020 520 L 920 318"/>
+    <path d="M 1020 520 L 920 654"/>
+    <path d="M 1020 520 L 920 738"/>
+  </g>
+
+  <!-- boundary condition -->
+  <text class="n" x="580" y="996" text-anchor="middle">The system produces a screening label, not a diagnosis; clinician review lies outside this boundary.</text>
+</svg>

@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 800" width="1160" height="800" role="img" aria-labelledby="f31title f31desc">
+  <title id="f31title">Milestone-based process model of the NeuroScan study</title>
+  <desc id="f31desc">Seven milestone phases ordered by dependency: repository bootstrap, data preparation, training and export, application scaffold and inference, heatmap overlay, batch/history/export, and packaging. Each phase is labelled M1 to M7 and carries its exit criterion. A return arrow loops from the final phase back to the first to show the iterative build and evaluate cycles, and a footer states the cross-cutting verification activities: determinism through seeds and versioned checkpoints, Python-to-Rust parity checking, and per-milestone exit criteria acting as internal review.</desc>
+
+  <defs>
+    <marker id="a31" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="a31f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <style>
+      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
+      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
+      .chip { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1160" height="800" fill="#ffffff"/>
+
+  <!-- legend -->
+  <rect x="16" y="26" width="22" height="22" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8"/>
+  <text class="n" x="46" y="45">Setup</text>
+  <rect x="130" y="26" width="22" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.8"/>
+  <text class="n" x="160" y="45">Data and model</text>
+  <rect x="330" y="26" width="22" height="22" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text class="n" x="360" y="45">Application</text>
+  <text class="n" x="1144" y="45" text-anchor="end">Phases are ordered by dependency.</text>
+
+  <!-- ================= row 1 ================= -->
+  <g>
+    <rect x="12" y="100" width="262" height="200" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="26" y="114" width="54" height="32" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+    <text class="chip" x="53" y="138" text-anchor="middle">M1</text>
+    <text class="ct" x="28" y="182">Repository</text>
+    <text class="ct" x="28" y="210">bootstrap</text>
+    <text class="d" x="28" y="246">Layout, README and</text>
+    <text class="d" x="28" y="272">spec committed</text>
+  </g>
+
+  <g>
+    <rect x="304" y="100" width="262" height="200" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="318" y="114" width="54" height="32" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.4"/>
+    <text class="chip" x="345" y="138" text-anchor="middle">M2</text>
+    <text class="ct" x="320" y="182">Data</text>
+    <text class="ct" x="320" y="210">preparation</text>
+    <text class="d" x="320" y="246">Verified downloads;</text>
+    <text class="d" x="320" y="272">dedupe and split</text>
+  </g>
+
+  <g>
+    <rect x="596" y="100" width="262" height="200" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="610" y="114" width="54" height="32" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.4"/>
+    <text class="chip" x="637" y="138" text-anchor="middle">M3</text>
+    <text class="ct" x="612" y="182">Training and</text>
+    <text class="ct" x="612" y="210">export</text>
+    <text class="d" x="612" y="246">&#8805; 95% accuracy on</text>
+    <text class="d" x="612" y="272">the held-out test set</text>
+  </g>
+
+  <g>
+    <rect x="888" y="100" width="262" height="200" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="902" y="114" width="54" height="32" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.4"/>
+    <text class="chip" x="929" y="138" text-anchor="middle">M4</text>
+    <text class="ct" x="904" y="182">App scaffold</text>
+    <text class="ct" x="904" y="210">and inference</text>
+    <text class="d" x="904" y="246">Bundled model runs;</text>
+    <text class="d" x="904" y="272">parity on 20 images</text>
+  </g>
+
+  <!-- row 1 arrows -->
+  <path d="M 274 200 H 304" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+  <path d="M 566 200 H 596" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+  <path d="M 858 200 H 888" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+
+  <!-- row 1 to row 2 -->
+  <path d="M 1019 300 V 330 H 291 V 360" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+
+  <!-- ================= row 2 ================= -->
+  <g>
+    <rect x="160" y="360" width="262" height="200" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="174" y="374" width="54" height="32" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.4"/>
+    <text class="chip" x="201" y="398" text-anchor="middle">M5</text>
+    <text class="ct" x="176" y="442">Heatmap</text>
+    <text class="ct" x="176" y="470">overlay (CAM)</text>
+    <text class="d" x="176" y="506">Overlay checked on</text>
+    <text class="d" x="176" y="532">10 tumor scans</text>
+  </g>
+
+  <g>
+    <rect x="452" y="360" width="262" height="200" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="466" y="374" width="54" height="32" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.4"/>
+    <text class="chip" x="493" y="398" text-anchor="middle">M6</text>
+    <text class="ct" x="468" y="442">Batch, history</text>
+    <text class="ct" x="468" y="470">and export</text>
+    <text class="d" x="468" y="506">Progress grid;</text>
+    <text class="d" x="468" y="532">history; CSV + PNG</text>
+  </g>
+
+  <g>
+    <rect x="744" y="360" width="262" height="200" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="758" y="374" width="54" height="32" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.4"/>
+    <text class="chip" x="785" y="398" text-anchor="middle">M7</text>
+    <text class="ct" x="760" y="442">Packaging</text>
+    <text class="d" x="760" y="496">Windows installer;</text>
+    <text class="d" x="760" y="522">disclaimer pass;</text>
+    <text class="d" x="760" y="548">README final</text>
+  </g>
+
+  <!-- row 2 arrows -->
+  <path d="M 422 460 H 452" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+  <path d="M 714 460 H 744" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a31)"/>
+
+  <!-- iteration feedback -->
+  <path d="M 875 560 V 600 H 130 V 300" stroke="#0f172a" stroke-width="2.6" fill="none" stroke-dasharray="11 7" marker-end="url(#a31f)"/>
+  <text class="d" x="580" y="630" text-anchor="middle">Iterative build&#8211;evaluate cycles: each phase&#8217;s evaluation feeds the phases that depend on it.</text>
+
+  <!-- cross-cutting verification footer -->
+  <rect x="12" y="660" width="1136" height="120" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="9 6"/>
+  <text class="lbl" x="32" y="694">Cross-cutting verification</text>
+  <text class="d" x="32" y="726">&#183; Fixed seeds, saved run configuration and versioned checkpoints keep every result traceable.</text>
+  <text class="d" x="32" y="754">&#183; Python-to-Rust parity checks &#183; each milestone&#8217;s exit criteria as an internal review</text>
+</svg>
