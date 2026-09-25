@@ -1,0 +1,13 @@
+{
+  "name": "@neuroscan/types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript types for NeuroScan",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
