@@ -1,17 +1,23 @@
 {
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "pnpm run dev",
+    "beforeBuildCommand": "pnpm run build",
     "devPath": "http://localhost:5173",
     "distDir": "../dist"
   },
   "package": {
     "productName": "NeuroScan",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "window": {
+        "startDragging": true,
+        "minimize": true,
+        "maximize": true,
+        "unmaximize": true,
+        "close": true
+      }
     },
     "bundle": {
       "active": true,
@@ -23,21 +29,28 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ]
+      ],
+      "shortDescription": "Brain MRI screening workstation",
+      "longDescription": "Offline clinical decision-support workstation for brain MRI: patient and examination management, DICOM/PNG/JPEG viewing, local AI screening with class activation maps, and signed clinician reports."
     },
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://neuroscan.localhost neuroscan:; connect-src 'self' ipc: https://ipc.localhost https://neuroscan.localhost neuroscan:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
+      "devCsp": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:5173; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://neuroscan.localhost neuroscan:; connect-src 'self' ipc: https://ipc.localhost https://neuroscan.localhost neuroscan: http://localhost:5173 ws://localhost:5173; font-src 'self' data:; object-src 'none'"
     },
     "updater": {
       "active": false
     },
     "windows": [
       {
-        "fullscreen": false,
-        "resizable": true,
         "title": "NeuroScan",
-        "width": 1200,
-        "height": 800
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1180,
+        "minHeight": 720,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": false,
+        "fileDropEnabled": true
       }
     ]
   }

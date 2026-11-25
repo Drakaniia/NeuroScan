@@ -1,20 +1,67 @@
 [package]
 name = "neuroscan"
-version = "0.1.0"
-description = "NeuroScan desktop application"
-authors = ["you"]
+version = "0.2.0"
+description = "NeuroScan — clinical decision-support workstation for brain MRI screening"
+authors = ["NeuroScan contributors"]
 license = ""
 repository = ""
 edition = "2021"
+
+[lib]
+name = "neuroscan_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "neuroscan"
+path = "src/main.rs"
 
 [build-dependencies]
 tauri-build = { version = "1.5", features = [] }
 
 [dependencies]
-tauri = { version = "1.5", features = [ "shell-open"] }
+tauri = { version = "1.5", features = [
+  "window-unmaximize",
+  "window-minimize",
+  "window-start-dragging",
+  "window-close",
+  "window-maximize",
+  "dialog",
+] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+thiserror = "2.0.21"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+uuid = { version = "1.29.0", features = ["v4"] }
+base64 = "0.23.1"
+sha2 = "0.11.1"
+argon2 = "0.6.0"
+# Local record store: patients, examinations, AI results, reviews, audit trail.
+rusqlite = { version = "0.41.1", features = ["bundled"] }
+# PNG/JPEG decoding, resizing and thumbnail encoding.
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg"] }
+# DICOM Part 10 parsing and pixel data decoding (native codecs: RLE, JPEG baseline, deflate).
+dicom-object = "0.10.1"
+dicom-pixeldata = "0.10.1"
+dicom-dictionary-std = "0.10.1"
+dicom-core = "0.10.1"
+# ONNX Runtime bindings for local, offline inference.
+ort = "2.0.0-rc.15"
 
 [features]
-default = [ "custom-protocol" ]
-custom-protocol = [ "tauri/custom-protocol" ]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[dev-dependencies]
+tempfile = "3.27.0"
+
+# Debug builds still optimise dependencies: password hashing, image decoding
+# and resizing are unusably slow unoptimised, and they are compiled only once.
+# Dependencies carry no debug info, which keeps a full build within the memory
+# of an 8 GB workstation.
+[profile.dev.package."*"]
+opt-level = 2
+debug = false
+
+# Generated Win32 bindings: huge, never hot, and memory-hungry to optimise.
+[profile.dev.package.windows]
+opt-level = 0

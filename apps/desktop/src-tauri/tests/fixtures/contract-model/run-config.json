@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "model": {
+    "id": "neuroscan-contract-fixture",
+    "name": "NeuroScan contract fixture (untrained)",
+    "version": "0.0.0-fixture",
+    "file": "neuroscan.onnx",
+    "sha256": "ee2a7716bac2b357606f9e54f4cc9c2ce5a50aed4986353545194485869845c1",
+    "description": "Tiny CNN with random weights that implements the four-output CAM contract.",
+    "created": null,
+    "training_data": null,
+    "intended_use": "Automated integration tests of the application only. Untrained random weights: outputs are meaningless and must never be used to interpret an image.",
+    "performance": null,
+    "limitations": [
+      "Not trained on any data.",
+      "Not a medical model."
+    ],
+    "fixture": true
+  },
+  "task": "classification",
+  "input": {
+    "name": "input",
+    "layout": "NCHW",
+    "width": 224,
+    "height": 224,
+    "channels": 3,
+    "resize": "bilinear",
+    "scale": 0.00392156862745098,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "output": {
+    "scores": "logits",
+    "activation": "softmax",
+    "classes": [
+      {
+        "label": "no_tumor",
+        "display_name": "No tumor",
+        "finding": "negative"
+      },
+      {
+        "label": "tumor",
+        "display_name": "Tumor",
+        "finding": "positive"
+      }
+    ]
+  },
+  "explainability": {
+    "method": "cam",
+    "features": "features",
+    "weights": "head_w"
+  },
+  "decision": {
+    "threshold": 0.5,
+    "low_confidence_band": 0.05
+  },
+  "dicom": {
+    "voi": "file_window_or_minmax"
+  }
+}
