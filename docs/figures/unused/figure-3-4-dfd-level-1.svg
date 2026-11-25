@@ -4,34 +4,33 @@
 
   <defs>
     <marker id="a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
     </marker>
     <style>
-      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
-      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
-      .chip { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #065f46; }
-      .sl  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #4c1d95; }
+      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .chip { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .sl  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1160" height="830" fill="#ffffff"/>
-
+  
   <!-- note -->
-  <rect x="310" y="30" width="810" height="100" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="9 6"/>
+  <rect x="310" y="30" width="810" height="100" rx="12" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="9 6"/>
   <text class="d" x="332" y="70">Principal flows are shown. Acquisition reads local files only.</text>
   <text class="d" x="332" y="100">No network entity appears at any level of this diagram.</text>
 
   <!-- ================= external entities ================= -->
   <g>
-    <rect x="30" y="160" width="200" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="30" y="160" width="200" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="130" y="240" text-anchor="middle">User</text>
     <text class="n" x="130" y="272" text-anchor="middle">screening</text>
     <text class="n" x="130" y="296" text-anchor="middle">operator</text>
   </g>
   <g>
-    <rect x="30" y="620" width="200" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="30" y="620" width="200" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="130" y="672" text-anchor="middle">Local file</text>
     <text class="t" x="130" y="700" text-anchor="middle">system</text>
     <text class="n" x="130" y="730" text-anchor="middle">images and</text>
@@ -40,22 +39,22 @@
 
   <!-- ================= row 1 ================= -->
   <g>
-    <rect x="310" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="310" y="160" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="338" cy="190" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="338" y="198" text-anchor="middle">1</text>
     <text class="ct" x="415" y="236" text-anchor="middle">Acquire</text>
     <text class="n" x="415" y="282" text-anchor="middle">single or folder</text>
   </g>
   <g>
-    <rect x="610" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="638" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="610" y="160" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="638" cy="190" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="638" y="198" text-anchor="middle">2</text>
     <text class="ct" x="715" y="236" text-anchor="middle">Validate</text>
     <text class="n" x="715" y="282" text-anchor="middle">decode; error row</text>
   </g>
   <g>
-    <rect x="910" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="938" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="910" y="160" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="938" cy="190" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="938" y="198" text-anchor="middle">3</text>
     <text class="ct" x="1015" y="236" text-anchor="middle">Preprocess</text>
     <text class="n" x="1015" y="282" text-anchor="middle">resize; normalize</text>
@@ -63,23 +62,23 @@
 
   <!-- ================= row 2 ================= -->
   <g>
-    <rect x="310" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="310" y="390" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="338" cy="420" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="338" y="428" text-anchor="middle">6</text>
     <text class="ct" x="415" y="456" text-anchor="middle">Class</text>
     <text class="ct" x="415" y="484" text-anchor="middle">activation map</text>
     <text class="n" x="415" y="522" text-anchor="middle">features &#215; head_w</text>
   </g>
   <g>
-    <rect x="610" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="638" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="610" y="390" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="638" cy="420" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="638" y="428" text-anchor="middle">5</text>
     <text class="ct" x="715" y="466" text-anchor="middle">Probability</text>
     <text class="n" x="715" y="522" text-anchor="middle">softmax vs &#964;</text>
   </g>
   <g>
-    <rect x="910" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="938" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="910" y="390" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="938" cy="420" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="938" y="428" text-anchor="middle">4</text>
     <text class="ct" x="1015" y="466" text-anchor="middle">Inference</text>
     <text class="n" x="1015" y="522" text-anchor="middle">one ONNX pass</text>
@@ -87,65 +86,65 @@
 
   <!-- ================= row 3 ================= -->
   <g>
-    <rect x="310" y="620" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="650" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
+    <rect x="310" y="620" width="210" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="338" cy="650" r="16" fill="none" stroke="#000000" stroke-width="1.8"/>
     <text class="chip" x="338" y="658" text-anchor="middle">7</text>
     <text class="ct" x="415" y="686" text-anchor="middle">Persist and</text>
     <text class="ct" x="415" y="714" text-anchor="middle">export</text>
     <text class="n" x="415" y="752" text-anchor="middle">history, CSV, PNGs</text>
   </g>
   <g>
-    <rect x="610" y="620" width="210" height="150" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
-    <path d="M 626 620 V 770" stroke="#ddd6fe" stroke-width="2"/>
+    <rect x="610" y="620" width="210" height="150" rx="6" fill="none" stroke="#000000" stroke-width="2"/>
+    <path d="M 626 620 V 770" stroke="#000000" stroke-width="2"/>
     <text class="sl" x="720" y="686" text-anchor="middle">D2 Screening</text>
     <text class="ct" x="720" y="714" text-anchor="middle">history</text>
     <text class="n" x="720" y="752" text-anchor="middle">history.json</text>
   </g>
   <g>
-    <rect x="910" y="620" width="210" height="150" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
-    <path d="M 926 620 V 770" stroke="#ddd6fe" stroke-width="2"/>
+    <rect x="910" y="620" width="210" height="150" rx="6" fill="none" stroke="#000000" stroke-width="2"/>
+    <path d="M 926 620 V 770" stroke="#000000" stroke-width="2"/>
     <text class="sl" x="1020" y="686" text-anchor="middle">D1 Model and</text>
     <text class="ct" x="1020" y="714" text-anchor="middle">run-config</text>
     <text class="n" x="1020" y="752" text-anchor="middle">read-only</text>
   </g>
 
   <!-- ================= flows ================= -->
-  <path d="M 230 225 H 310" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 230 225 H 310" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="280" y="252" text-anchor="middle">path</text>
 
-  <path d="M 230 660 H 255 V 200 H 310" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 230 660 H 255 V 200 H 310" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="250" y="430" text-anchor="end">images</text>
 
-  <path d="M 520 235 H 610" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 520 235 H 610" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="565" y="225" text-anchor="middle">list</text>
 
-  <path d="M 820 235 H 910" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 820 235 H 910" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="865" y="225" text-anchor="middle">decoded</text>
 
-  <path d="M 1015 310 V 390" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 1015 310 V 390" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="1025" y="360">tensor</text>
 
-  <path d="M 910 465 H 820" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 910 465 H 820" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="865" y="455" text-anchor="middle">logits</text>
 
-  <path d="M 610 465 H 520" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 610 465 H 520" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="565" y="455" text-anchor="middle">p vs &#964;</text>
 
-  <path d="M 940 390 V 355 H 415 V 390" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 940 390 V 355 H 415 V 390" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="668" y="347" text-anchor="middle">features</text>
 
-  <path d="M 715 540 V 580 H 470 V 620" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 715 540 V 580 H 470 V 620" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="560" y="572" text-anchor="middle">verdict</text>
 
-  <path d="M 360 540 V 620" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 360 540 V 620" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="350" y="580" text-anchor="end">overlay</text>
 
-  <path d="M 1015 620 V 540" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 1015 620 V 540" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="1025" y="580">model</text>
 
-  <path d="M 520 695 H 610" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 520 695 H 610" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="565" y="685" text-anchor="middle">entry</text>
 
-  <path d="M 310 695 H 275 V 780 H 130 V 770" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 310 695 H 275 V 780 H 130 V 770" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
   <text class="n" x="330" y="806">exports</text>
 </svg>

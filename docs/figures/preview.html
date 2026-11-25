@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <title>NeuroScan figures &#8212; Chapter 2 and Chapter 3</title>
 <style>
-  html, body { margin: 0; padding: 0; background: #ffffff; }
+  html, body { margin: 0; padding: 0; background: transparent; }
   body { padding: 32px 16px; }
   section { margin: 0 auto 56px; max-width: 1600px; }
   h2 { font: 600 16px "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #334155; margin: 0 0 12px; }
@@ -288,355 +288,7 @@
 </svg>
 </section>
 <section>
-<h2>Figure 3-2. Use case diagram of NeuroScan</h2>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1020" width="1160" height="1020" role="img" aria-labelledby="f32title f32desc">
-  <title id="f32title">Use case diagram of NeuroScan</title>
-  <desc id="f32desc">Two actors: the user (researcher, health worker, or clinician) and the local file system. Inside the NeuroScan boundary are ten use cases: open a single image, screen a single image, screen a batch of images from a folder, view the verdict and confidence and threshold, view the class activation mapping heatmap overlay, browse the screening history, export the history as a CSV file, export annotated image copies, clear the screening history, and read the disclaimer. The user is associated with all ten; the file system participates in the four use cases that read or write files. Clinician review is drawn outside the boundary.</desc>
-
-  <defs>
-    <style>
-      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
-      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
-    </style>
-  </defs>
-
-  <rect x="0" y="0" width="1160" height="1020" fill="#ffffff"/>
-
-  <!-- legend -->
-  <rect x="16" y="26" width="22" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.8"/>
-  <text class="n" x="46" y="45">User only</text>
-  <rect x="200" y="26" width="22" height="22" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.8"/>
-  <text class="n" x="230" y="45">Also involves the file system</text>
-
-  <!-- boundary -->
-  <rect x="200" y="90" width="760" height="860" rx="16" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-dasharray="11 8"/>
-  <rect x="150" y="72" width="860" height="34" fill="#ffffff"/>
-  <text class="lbl" x="580" y="99" text-anchor="middle">System boundary &#8212; NeuroScan desktop application</text>
-
-  <!-- use cases -->
-  <g>
-    <ellipse cx="580" cy="150" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="580" y="158" text-anchor="middle">Open a single image</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="234" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="242" text-anchor="middle">Screen a single image</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="318" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="580" y="326" text-anchor="middle">Screen a batch from a folder</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="402" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="410" text-anchor="middle">View verdict, confidence, threshold</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="486" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="494" text-anchor="middle">View the CAM heatmap overlay</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="570" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="578" text-anchor="middle">Browse the screening history</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="654" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="580" y="662" text-anchor="middle">Export the history as CSV</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="738" rx="340" ry="30" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="580" y="746" text-anchor="middle">Export annotated image copies</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="822" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="830" text-anchor="middle">Clear the screening history</text>
-  </g>
-  <g>
-    <ellipse cx="580" cy="906" rx="340" ry="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="t" x="580" y="914" text-anchor="middle">Read the disclaimer</text>
-  </g>
-
-  <!-- primary actor: user -->
-  <g stroke="#334155" stroke-width="2.4" fill="none">
-    <circle cx="95" cy="470" r="22"/>
-    <path d="M 95 492 V 552"/>
-    <path d="M 55 520 H 135"/>
-    <path d="M 95 552 L 68 610"/>
-    <path d="M 95 552 L 122 610"/>
-  </g>
-  <text class="lbl" x="95" y="654" text-anchor="middle">User</text>
-  <text class="n" x="95" y="684" text-anchor="middle">researcher,</text>
-  <text class="n" x="95" y="708" text-anchor="middle">health worker</text>
-  <text class="n" x="95" y="732" text-anchor="middle">or clinician</text>
-
-  <!-- secondary actor: local file system -->
-  <g stroke="#334155" stroke-width="2.4" fill="none">
-    <circle cx="1065" cy="470" r="22"/>
-    <path d="M 1065 492 V 552"/>
-    <path d="M 1025 520 H 1105"/>
-    <path d="M 1065 552 L 1038 610"/>
-    <path d="M 1065 552 L 1092 610"/>
-  </g>
-  <text class="lbl" x="1065" y="654" text-anchor="middle">Local file</text>
-  <text class="lbl" x="1065" y="682" text-anchor="middle">system</text>
-  <text class="n" x="1065" y="712" text-anchor="middle">images in,</text>
-  <text class="n" x="1065" y="736" text-anchor="middle">results out</text>
-
-  <!-- user associations -->
-  <g stroke="#94a3b8" stroke-width="1.8" fill="none">
-    <path d="M 140 520 L 240 150"/>
-    <path d="M 140 520 L 240 234"/>
-    <path d="M 140 520 L 240 318"/>
-    <path d="M 140 520 L 240 402"/>
-    <path d="M 140 520 L 240 486"/>
-    <path d="M 140 520 L 240 570"/>
-    <path d="M 140 520 L 240 654"/>
-    <path d="M 140 520 L 240 738"/>
-    <path d="M 140 520 L 240 822"/>
-    <path d="M 140 520 L 240 906"/>
-  </g>
-
-  <!-- file system associations -->
-  <g stroke="#a5b4fc" stroke-width="2.2" fill="none">
-    <path d="M 1020 520 L 920 150"/>
-    <path d="M 1020 520 L 920 318"/>
-    <path d="M 1020 520 L 920 654"/>
-    <path d="M 1020 520 L 920 738"/>
-  </g>
-
-  <!-- boundary condition -->
-  <text class="n" x="580" y="996" text-anchor="middle">The system produces a screening label, not a diagnosis; clinician review lies outside this boundary.</text>
-</svg>
-</section>
-<section>
-<h2>Figure 3-3. Context diagram (level zero) of NeuroScan</h2>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 700" width="1160" height="700" role="img" aria-labelledby="f33title f33desc">
-  <title id="f33title">Context diagram (level zero) of NeuroScan</title>
-  <desc id="f33desc">Two external entities, the user (researcher, health worker, or clinician) and the local file system, exchange data with NeuroScan as a single central process. The user supplies an image file or folder path and receives a verdict, confidence score, and heatmap; the file system supplies image files and receives the screening history, CSV summaries, and annotated PNG copies. A note states that no network entity exists at any level of the diagram, because acquisition reads local files only and inference reads the bundled model.</desc>
-
-  <defs>
-    <marker id="a33" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
-    </marker>
-    <style>
-      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
-      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
-      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
-      .chip { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #065f46; }
-    </style>
-  </defs>
-
-  <rect x="0" y="0" width="1160" height="700" fill="#ffffff"/>
-
-  <!-- external entity: user -->
-  <g>
-    <rect x="40" y="265" width="180" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="130" y="318" text-anchor="middle">User</text>
-    <text class="n" x="130" y="350" text-anchor="middle">screening</text>
-    <text class="n" x="130" y="374" text-anchor="middle">operator</text>
-  </g>
-
-  <!-- external entity: local file system -->
-  <g>
-    <rect x="940" y="265" width="180" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="1030" y="310" text-anchor="middle">Local file</text>
-    <text class="t" x="1030" y="338" text-anchor="middle">system</text>
-    <text class="n" x="1030" y="368" text-anchor="middle">images in,</text>
-    <text class="n" x="1030" y="392" text-anchor="middle">results out</text>
-  </g>
-
-  <!-- central process -->
-  <g>
-    <rect x="420" y="250" width="320" height="170" rx="14" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2.2"/>
-    <circle cx="452" cy="282" r="17" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
-    <text class="chip" x="452" y="290" text-anchor="middle">0</text>
-    <text class="t" x="580" y="322" text-anchor="middle">NeuroScan</text>
-    <text class="d" x="580" y="352" text-anchor="middle">screening system</text>
-    <text class="n" x="580" y="380" text-anchor="middle">all processing local</text>
-  </g>
-
-  <!-- user flows -->
-  <path d="M 220 295 H 420" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a33)"/>
-  <text class="n" x="320" y="282" text-anchor="middle">image or folder path</text>
-  <path d="M 420 355 H 220" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a33)"/>
-  <text class="n" x="320" y="382" text-anchor="middle">verdict, confidence</text>
-  <text class="n" x="320" y="404" text-anchor="middle">and heatmap</text>
-
-  <!-- file system flows -->
-  <path d="M 940 295 H 740" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a33)"/>
-  <text class="n" x="840" y="282" text-anchor="middle">image files</text>
-  <path d="M 740 355 H 940" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a33)"/>
-  <text class="n" x="840" y="382" text-anchor="middle">history, CSV,</text>
-  <text class="n" x="840" y="404" text-anchor="middle">PNG copies</text>
-
-  <!-- no-network note -->
-  <g>
-    <rect x="100" y="500" width="960" height="150" rx="12" fill="#fef2f2" stroke="#fecaca" stroke-width="2" stroke-dasharray="9 6"/>
-    <circle cx="148" cy="546" r="16" fill="none" stroke="#b91c1c" stroke-width="2.2"/>
-    <path d="M 137 557 L 159 535" stroke="#b91c1c" stroke-width="2.2"/>
-    <text class="lbl" x="184" y="556" fill="#991b1b">No network entity at any level</text>
-    <text class="d" x="124" y="598">Acquisition reads local files only; inference reads the bundled model.</text>
-    <text class="d" x="124" y="628">Results are written back to the local machine; nothing is transmitted.</text>
-  </g>
-</svg>
-</section>
-<section>
-<h2>Figure 3-4. Level-one data flow diagram of NeuroScan</h2>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 830" width="1160" height="830" role="img" aria-labelledby="f34title f34desc">
-  <title id="f34title">Level-one data flow diagram of NeuroScan</title>
-  <desc id="f34desc">Seven processes: 1.0 acquire images, 2.0 validate and load, 3.0 preprocess, 4.0 inference by a single ONNX forward pass, 5.0 probability and threshold, 6.0 class activation map, and 7.0 persist and export. Data store D1 holds the bundled model and configuration record, read only by process 4.0; data store D2 holds the screening history, written by process 7.0. The user supplies an image file or folder path and receives results; the local file system supplies image files and receives the CSV summary, annotated PNG copies, and the history file. No network entity appears at any level.</desc>
-
-  <defs>
-    <marker id="a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
-    </marker>
-    <style>
-      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
-      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
-      .chip { font: 700 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #065f46; }
-      .sl  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #4c1d95; }
-    </style>
-  </defs>
-
-  <rect x="0" y="0" width="1160" height="830" fill="#ffffff"/>
-
-  <!-- note -->
-  <rect x="310" y="30" width="810" height="100" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="9 6"/>
-  <text class="d" x="332" y="70">Principal flows are shown. Acquisition reads local files only.</text>
-  <text class="d" x="332" y="100">No network entity appears at any level of this diagram.</text>
-
-  <!-- ================= external entities ================= -->
-  <g>
-    <rect x="30" y="160" width="200" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="130" y="240" text-anchor="middle">User</text>
-    <text class="n" x="130" y="272" text-anchor="middle">screening</text>
-    <text class="n" x="130" y="296" text-anchor="middle">operator</text>
-  </g>
-  <g>
-    <rect x="30" y="620" width="200" height="150" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
-    <text class="t" x="130" y="672" text-anchor="middle">Local file</text>
-    <text class="t" x="130" y="700" text-anchor="middle">system</text>
-    <text class="n" x="130" y="730" text-anchor="middle">images and</text>
-    <text class="n" x="130" y="754" text-anchor="middle">exports</text>
-  </g>
-
-  <!-- ================= row 1 ================= -->
-  <g>
-    <rect x="310" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="338" y="198" text-anchor="middle">1</text>
-    <text class="ct" x="415" y="236" text-anchor="middle">Acquire</text>
-    <text class="n" x="415" y="282" text-anchor="middle">single or folder</text>
-  </g>
-  <g>
-    <rect x="610" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="638" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="638" y="198" text-anchor="middle">2</text>
-    <text class="ct" x="715" y="236" text-anchor="middle">Validate</text>
-    <text class="n" x="715" y="282" text-anchor="middle">decode; error row</text>
-  </g>
-  <g>
-    <rect x="910" y="160" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="938" cy="190" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="938" y="198" text-anchor="middle">3</text>
-    <text class="ct" x="1015" y="236" text-anchor="middle">Preprocess</text>
-    <text class="n" x="1015" y="282" text-anchor="middle">resize; normalize</text>
-  </g>
-
-  <!-- ================= row 2 ================= -->
-  <g>
-    <rect x="310" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="338" y="428" text-anchor="middle">6</text>
-    <text class="ct" x="415" y="456" text-anchor="middle">Class</text>
-    <text class="ct" x="415" y="484" text-anchor="middle">activation map</text>
-    <text class="n" x="415" y="522" text-anchor="middle">features &#215; head_w</text>
-  </g>
-  <g>
-    <rect x="610" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="638" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="638" y="428" text-anchor="middle">5</text>
-    <text class="ct" x="715" y="466" text-anchor="middle">Probability</text>
-    <text class="n" x="715" y="522" text-anchor="middle">softmax vs &#964;</text>
-  </g>
-  <g>
-    <rect x="910" y="390" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="938" cy="420" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="938" y="428" text-anchor="middle">4</text>
-    <text class="ct" x="1015" y="466" text-anchor="middle">Inference</text>
-    <text class="n" x="1015" y="522" text-anchor="middle">one ONNX pass</text>
-  </g>
-
-  <!-- ================= row 3 ================= -->
-  <g>
-    <rect x="310" y="620" width="210" height="150" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
-    <circle cx="338" cy="650" r="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.8"/>
-    <text class="chip" x="338" y="658" text-anchor="middle">7</text>
-    <text class="ct" x="415" y="686" text-anchor="middle">Persist and</text>
-    <text class="ct" x="415" y="714" text-anchor="middle">export</text>
-    <text class="n" x="415" y="752" text-anchor="middle">history, CSV, PNGs</text>
-  </g>
-  <g>
-    <rect x="610" y="620" width="210" height="150" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
-    <path d="M 626 620 V 770" stroke="#ddd6fe" stroke-width="2"/>
-    <text class="sl" x="720" y="686" text-anchor="middle">D2 Screening</text>
-    <text class="ct" x="720" y="714" text-anchor="middle">history</text>
-    <text class="n" x="720" y="752" text-anchor="middle">history.json</text>
-  </g>
-  <g>
-    <rect x="910" y="620" width="210" height="150" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
-    <path d="M 926 620 V 770" stroke="#ddd6fe" stroke-width="2"/>
-    <text class="sl" x="1020" y="686" text-anchor="middle">D1 Model and</text>
-    <text class="ct" x="1020" y="714" text-anchor="middle">run-config</text>
-    <text class="n" x="1020" y="752" text-anchor="middle">read-only</text>
-  </g>
-
-  <!-- ================= flows ================= -->
-  <path d="M 230 225 H 310" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="280" y="252" text-anchor="middle">path</text>
-
-  <path d="M 230 660 H 255 V 200 H 310" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="250" y="430" text-anchor="end">images</text>
-
-  <path d="M 520 235 H 610" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="565" y="225" text-anchor="middle">list</text>
-
-  <path d="M 820 235 H 910" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="865" y="225" text-anchor="middle">decoded</text>
-
-  <path d="M 1015 310 V 390" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="1025" y="360">tensor</text>
-
-  <path d="M 910 465 H 820" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="865" y="455" text-anchor="middle">logits</text>
-
-  <path d="M 610 465 H 520" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="565" y="455" text-anchor="middle">p vs &#964;</text>
-
-  <path d="M 940 390 V 355 H 415 V 390" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="668" y="347" text-anchor="middle">features</text>
-
-  <path d="M 715 540 V 580 H 470 V 620" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="560" y="572" text-anchor="middle">verdict</text>
-
-  <path d="M 360 540 V 620" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="350" y="580" text-anchor="end">overlay</text>
-
-  <path d="M 1015 620 V 540" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="1025" y="580">model</text>
-
-  <path d="M 520 695 H 610" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="565" y="685" text-anchor="middle">entry</text>
-
-  <path d="M 310 695 H 275 V 780 H 130 V 770" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
-  <text class="n" x="330" y="806">exports</text>
-</svg>
-</section>
-<section>
-<h2>Figure 3-5. System architecture of NeuroScan</h2>
+<h2>Figure 3-2. System architecture of NeuroScan</h2>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 900" width="1160" height="900" role="img" aria-labelledby="f35title f35desc">
   <title id="f35title">System architecture of NeuroScan</title>
   <desc id="f35desc">Above: the development-time offline Python pipeline, a chain of download and verify, deduplicate and split, train and evaluate, and export to ONNX. In the middle band, the exported artifacts form the interface between the two sides: the ONNX model exposing logits, feature map, head weights and head bias, together with the run configuration holding input size, normalization constants, class order and the screening threshold. Below: the run-time Tauri desktop application with a React and TypeScript frontend, the Rust command layer, the inference core using ONNX Runtime, the bundled resources, and the history and export store, with no network connection at run time.</desc>
@@ -679,7 +331,7 @@
     <rect x="595" y="110" width="260" height="120" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
     <text class="ct" x="725" y="156" text-anchor="middle">Train and</text>
     <text class="ct" x="725" y="184" text-anchor="middle">evaluate</text>
-    <text class="n" x="725" y="214" text-anchor="middle">Colab GPU</text>
+    <text class="n" x="725" y="214" text-anchor="middle">local GPU + Colab</text>
   </g>
   <g>
     <rect x="885" y="110" width="260" height="120" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
@@ -767,7 +419,7 @@
 </svg>
 </section>
 <section>
-<h2>Figure 3-6. Flowchart of the screening process</h2>
+<h2>Figure 3-3. Flowchart of the screening process</h2>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1400" width="1160" height="1400" role="img" aria-labelledby="f36title f36desc">
   <title id="f36title">Screening workflow of NeuroScan for a single image</title>
   <desc id="f36desc">Flowchart. The selected image is decoded, resized and normalized. If decoding fails, a per-file error is recorded, the batch continues, and the next image is taken. Otherwise a single ONNX forward pass returns logits, the feature map and the head weights. Softmax gives the probability p, which is compared with the threshold tau read from the run configuration, producing one of three verdicts: tumor, no tumor, or manual review when p lies within 0.05 of tau. A class activation map is computed from the same pass. If that map is uniform, the overlay is skipped and the source image is shown uncolored. The probability, verdict, confidence band and processing time are displayed and logged, an optional export is offered, and the workflow moves to the next image or ends the batch.</desc>
@@ -872,6 +524,127 @@
   <path d="M 330 965 V 1000" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a36)"/>
 
   <text class="n" x="580" y="1382" text-anchor="middle">Every step after the forward pass reuses that single pass.</text>
+</svg>
+</section>
+<section>
+<h2>Figure 3-4. Block diagram of the convolutional network</h2>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" width="1160" height="850" role="img" aria-labelledby="f34title f34desc">
+  <title id="f34title">Block diagram of the convolutional network</title>
+  <desc id="f34desc">Top band, feature extraction: the input tensor, the stem, and the four residual stages of ResNet-18, ending at a 512 by 7 by 7 feature map. An arrow carries 512 features down to the second band, the classification head, which runs left to right through global average pooling, dropout, the two-class linear layer and the class scores. Two tensors leave the network for the heatmap: the feature map from the last stage and the 2 by 512 head weight matrix from the linear layer, both entering the class activation map box below, which composites the result over the source image.</desc>
+
+  <defs>
+    <marker id="a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
+      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1160" height="850" fill="#ffffff"/>
+
+  <!-- ============ feature extraction ============ -->
+  <rect x="20" y="70" width="1120" height="230" rx="14" fill="none" stroke="#4b5563" stroke-width="2" stroke-dasharray="11 8"/>
+  <rect x="36" y="58" width="540" height="30" fill="#ffffff"/>
+  <text class="lbl" x="38" y="78">Feature extraction &#8212; one forward pass</text>
+
+  <g>
+    <rect x="29" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="112" y="142" text-anchor="middle">Input</text>
+    <text class="n" x="112" y="176" text-anchor="middle">3 &#215; 224 &#215; 224</text>
+    <text class="n" x="112" y="204" text-anchor="middle">normalized</text>
+  </g>
+  <g>
+    <rect x="216" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="299" y="142" text-anchor="middle">Stem</text>
+    <text class="n" x="299" y="176" text-anchor="middle">7 &#215; 7 conv, 64</text>
+    <text class="n" x="299" y="204" text-anchor="middle">64 &#215; 56 &#215; 56</text>
+  </g>
+  <g>
+    <rect x="403" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="486" y="142" text-anchor="middle">Stage 1</text>
+    <text class="n" x="486" y="176" text-anchor="middle">2 blocks &#215; 64</text>
+    <text class="n" x="486" y="204" text-anchor="middle">64 &#215; 56 &#215; 56</text>
+  </g>
+  <g>
+    <rect x="590" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="673" y="142" text-anchor="middle">Stage 2</text>
+    <text class="n" x="673" y="176" text-anchor="middle">2 blocks &#215; 128</text>
+    <text class="n" x="673" y="204" text-anchor="middle">128 &#215; 28 &#215; 28</text>
+  </g>
+  <g>
+    <rect x="777" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="860" y="142" text-anchor="middle">Stage 3</text>
+    <text class="n" x="860" y="176" text-anchor="middle">2 blocks &#215; 256</text>
+    <text class="n" x="860" y="204" text-anchor="middle">256 &#215; 14 &#215; 14</text>
+  </g>
+  <g>
+    <rect x="964" y="100" width="166" height="140" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text class="ct" x="1047" y="142" text-anchor="middle">Stage 4</text>
+    <text class="n" x="1047" y="176" text-anchor="middle">2 blocks &#215; 512</text>
+    <text class="n" x="1047" y="204" text-anchor="middle">512 &#215; 7 &#215; 7</text>
+  </g>
+
+  <path d="M 195 170 H 216" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 382 170 H 403" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 569 170 H 590" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 756 170 H 777" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 943 170 H 964" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+
+  <text class="n" x="30" y="278">ResNet-18, ImageNet-1k weights &#183; 11.2 M parameters</text>
+
+  <!-- ============ classification head ============ -->
+  <rect x="20" y="370" width="920" height="180" rx="14" fill="none" stroke="#4b5563" stroke-width="2" stroke-dasharray="11 8"/>
+  <rect x="300" y="358" width="300" height="30" fill="#ffffff"/>
+  <text class="lbl" x="302" y="378">Classification head</text>
+
+  <g>
+    <rect x="30" y="400" width="190" height="120" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="ct" x="125" y="430" text-anchor="middle">Global average</text>
+    <text class="ct" x="125" y="458" text-anchor="middle">pooling</text>
+    <text class="n" x="125" y="496" text-anchor="middle">512 features</text>
+  </g>
+  <g>
+    <rect x="260" y="400" width="190" height="120" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="ct" x="355" y="440" text-anchor="middle">Dropout</text>
+    <text class="n" x="355" y="488" text-anchor="middle">p = 0.3</text>
+  </g>
+  <g>
+    <rect x="490" y="400" width="190" height="120" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="ct" x="585" y="440" text-anchor="middle">Linear</text>
+    <text class="n" x="585" y="488" text-anchor="middle">512 &#8594; 2</text>
+  </g>
+  <g>
+    <rect x="720" y="400" width="190" height="120" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text class="ct" x="815" y="440" text-anchor="middle">Class scores</text>
+    <text class="n" x="815" y="488" text-anchor="middle">[no_tumor, tumor]</text>
+  </g>
+
+  <path d="M 220 460 H 260" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 450 460 H 490" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 680 460 H 720" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+
+  <!-- ============ the two tensors that leave the network ============ -->
+  <path d="M 1047 240 V 348 H 120 V 400" stroke="#64748b" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="560" y="330" text-anchor="middle">512 features</text>
+
+  <path d="M 1100 240 V 620" stroke="#0f172a" stroke-width="2.6" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="1088" y="430" text-anchor="end">feature map</text>
+  <text class="n" x="1088" y="456" text-anchor="end">1 &#215; 512 &#215; 7 &#215; 7</text>
+
+  <path d="M 585 520 V 590 H 850 V 620" stroke="#0f172a" stroke-width="2.6" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="600" y="580">head weights 2 &#215; 512</text>
+
+  <!-- ============ the explanation ============ -->
+  <rect x="700" y="620" width="430" height="140" rx="12" fill="#fffbeb" stroke="#fde68a" stroke-width="2.4"/>
+  <text class="ct" x="716" y="660">Class activation map</text>
+  <text class="d" x="716" y="694">features &#215; head weights &#8594; ReLU</text>
+  <text class="n" x="716" y="726">upsampled to 224 &#215; 224 and composited</text>
+
+  <text class="n" x="20" y="820">The heatmap reuses the same forward pass: both tensors leave the network rather than being recomputed.</text>
 </svg>
 </section>
 </body>

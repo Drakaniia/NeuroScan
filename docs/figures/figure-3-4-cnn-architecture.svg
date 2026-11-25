@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" width="1160" height="850" role="img" aria-labelledby="f34title f34desc">
+  <title id="f34title">Block diagram of the convolutional network</title>
+  <desc id="f34desc">Top band, feature extraction: the input tensor, the stem, and the four residual stages of ResNet-18, ending at a 512 by 7 by 7 feature map. An arrow carries 512 features down to the second band, the classification head, which runs left to right through global average pooling, dropout, the two-class linear layer and the class scores. Two tensors leave the network for the heatmap: the feature map from the last stage and the 2 by 512 head weight matrix from the linear layer, both entering the class activation map box below, which composites the result over the source image.</desc>
+
+  <defs>
+    <marker id="a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
+    </marker>
+    <style>
+      .ct  { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+    </style>
+  </defs>
+
+  
+  <!-- ============ feature extraction ============ -->
+  <rect x="20" y="70" width="1120" height="230" rx="14" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="11 8"/>
+  <rect x="36" y="58" width="540" height="30" fill="none"/>
+  <text class="lbl" x="38" y="78">Feature extraction &#8212; one forward pass</text>
+
+  <g>
+    <rect x="29" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="112" y="142" text-anchor="middle">Input</text>
+    <text class="n" x="112" y="176" text-anchor="middle">3 &#215; 224 &#215; 224</text>
+    <text class="n" x="112" y="204" text-anchor="middle">normalized</text>
+  </g>
+  <g>
+    <rect x="216" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="299" y="142" text-anchor="middle">Stem</text>
+    <text class="n" x="299" y="176" text-anchor="middle">7 &#215; 7 conv, 64</text>
+    <text class="n" x="299" y="204" text-anchor="middle">64 &#215; 56 &#215; 56</text>
+  </g>
+  <g>
+    <rect x="403" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="486" y="142" text-anchor="middle">Stage 1</text>
+    <text class="n" x="486" y="176" text-anchor="middle">2 blocks &#215; 64</text>
+    <text class="n" x="486" y="204" text-anchor="middle">64 &#215; 56 &#215; 56</text>
+  </g>
+  <g>
+    <rect x="590" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="673" y="142" text-anchor="middle">Stage 2</text>
+    <text class="n" x="673" y="176" text-anchor="middle">2 blocks &#215; 128</text>
+    <text class="n" x="673" y="204" text-anchor="middle">128 &#215; 28 &#215; 28</text>
+  </g>
+  <g>
+    <rect x="777" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="860" y="142" text-anchor="middle">Stage 3</text>
+    <text class="n" x="860" y="176" text-anchor="middle">2 blocks &#215; 256</text>
+    <text class="n" x="860" y="204" text-anchor="middle">256 &#215; 14 &#215; 14</text>
+  </g>
+  <g>
+    <rect x="964" y="100" width="166" height="140" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="1047" y="142" text-anchor="middle">Stage 4</text>
+    <text class="n" x="1047" y="176" text-anchor="middle">2 blocks &#215; 512</text>
+    <text class="n" x="1047" y="204" text-anchor="middle">512 &#215; 7 &#215; 7</text>
+  </g>
+
+  <path d="M 195 170 H 216" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 382 170 H 403" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 569 170 H 590" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 756 170 H 777" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 943 170 H 964" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+
+  <text class="n" x="30" y="278">ResNet-18, ImageNet-1k weights &#183; 11.2 M parameters</text>
+
+  <!-- ============ classification head ============ -->
+  <rect x="20" y="370" width="920" height="180" rx="14" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="11 8"/>
+  <rect x="300" y="358" width="300" height="30" fill="none"/>
+  <text class="lbl" x="302" y="378">Classification head</text>
+
+  <g>
+    <rect x="30" y="400" width="190" height="120" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="125" y="430" text-anchor="middle">Global average</text>
+    <text class="ct" x="125" y="458" text-anchor="middle">pooling</text>
+    <text class="n" x="125" y="496" text-anchor="middle">512 features</text>
+  </g>
+  <g>
+    <rect x="260" y="400" width="190" height="120" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="355" y="440" text-anchor="middle">Dropout</text>
+    <text class="n" x="355" y="488" text-anchor="middle">p = 0.3</text>
+  </g>
+  <g>
+    <rect x="490" y="400" width="190" height="120" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="585" y="440" text-anchor="middle">Linear</text>
+    <text class="n" x="585" y="488" text-anchor="middle">512 &#8594; 2</text>
+  </g>
+  <g>
+    <rect x="720" y="400" width="190" height="120" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
+    <text class="ct" x="815" y="440" text-anchor="middle">Class scores</text>
+    <text class="n" x="815" y="488" text-anchor="middle">[no_tumor, tumor]</text>
+  </g>
+
+  <path d="M 220 460 H 260" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 450 460 H 490" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <path d="M 680 460 H 720" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+
+  <!-- ============ the two tensors that leave the network ============ -->
+  <path d="M 1047 240 V 348 H 120 V 400" stroke="#000000" stroke-width="2.4" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="560" y="330" text-anchor="middle">512 features</text>
+
+  <path d="M 1100 240 V 620" stroke="#000000" stroke-width="2.6" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="1088" y="430" text-anchor="end">feature map</text>
+  <text class="n" x="1088" y="456" text-anchor="end">1 &#215; 512 &#215; 7 &#215; 7</text>
+
+  <path d="M 585 520 V 590 H 850 V 620" stroke="#000000" stroke-width="2.6" fill="none" marker-end="url(#a34)"/>
+  <text class="n" x="600" y="580">head weights 2 &#215; 512</text>
+
+  <!-- ============ the explanation ============ -->
+  <rect x="700" y="620" width="430" height="140" rx="12" fill="none" stroke="#000000" stroke-width="2.4"/>
+  <text class="ct" x="716" y="660">Class activation map</text>
+  <text class="d" x="716" y="694">features &#215; head weights &#8594; ReLU</text>
+  <text class="n" x="716" y="726">upsampled to 224 &#215; 224 and composited</text>
+
+  <text class="n" x="20" y="820">The heatmap reuses the same forward pass: both tensors leave the network rather than being recomputed.</text>
+</svg>

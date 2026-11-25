@@ -8,11 +8,9 @@ cd "$(dirname "$0")"
 figures=(
   "figure-2-1-conceptual-framework.svg|Figure 2-1. Conceptual framework of the NeuroScan screening system"
   "figure-3-1-process-model.svg|Figure 3-1. Milestone-based process model of the study"
-  "figure-3-2-use-case.svg|Figure 3-2. Use case diagram of NeuroScan"
-  "figure-3-3-context-diagram.svg|Figure 3-3. Context diagram (level zero) of NeuroScan"
-  "figure-3-4-dfd-level-1.svg|Figure 3-4. Level-one data flow diagram of NeuroScan"
-  "figure-3-5-architecture.svg|Figure 3-5. System architecture of NeuroScan"
-  "figure-3-6-screening-flowchart.svg|Figure 3-6. Flowchart of the screening process"
+  "figure-3-2-architecture.svg|Figure 3-2. System architecture of NeuroScan"
+  "figure-3-3-screening-flowchart.svg|Figure 3-3. Flowchart of the screening process"
+  "figure-3-4-cnn-architecture.svg|Figure 3-4. Block diagram of the convolutional network"
 )
 
 {

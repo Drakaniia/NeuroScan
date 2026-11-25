@@ -15,11 +15,10 @@ docs/
 ├── figures/           # Diagrams and visualizations
 │   ├── figure-2-1-conceptual-framework.svg
 │   ├── figure-3-1-process-model.svg
-│   ├── figure-3-2-use-case.svg
-│   ├── figure-3-3-context-diagram.svg
-│   ├── figure-3-4-dfd-level-1.svg
-│   ├── figure-3-5-architecture.svg
-│   └── figure-3-6-screening-flowchart.svg
+│   ├── figure-3-2-architecture.svg
+│   ├── figure-3-3-screening-flowchart.svg
+│   ├── figure-3-4-cnn-architecture.svg
+│   └── unused/        # Superseded diagrams (use case, context, DFD level 1)
 ├── research/          # Research materials and specifications
 │   ├── RRL_links.md
 │   ├── RRS_links.md

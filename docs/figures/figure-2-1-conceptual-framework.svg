@@ -4,45 +4,44 @@
 
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
     </marker>
     <marker id="arrowStrong" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
     </marker>
     <style>
-      .hdr { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #374151; }
-      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
-      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #475569; }
-      .b   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
-      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #64748b; }
-      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #334155; }
+      .hdr { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .t   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .d   { font: 400 22px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .b   { font: 700 24px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .n   { font: italic 400 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
+      .lbl { font: 700 26px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #000000; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1160" height="1110" fill="#ffffff"/>
-
+  
   <!-- system boundary -->
-  <rect x="16" y="50" width="1128" height="810" rx="16" ry="16" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-dasharray="12 8"/>
-  <rect x="36" y="36" width="780" height="44" fill="#ffffff"/>
+  <rect x="16" y="50" width="1128" height="810" rx="16" ry="16" fill="none" stroke="#000000" stroke-width="2.2" stroke-dasharray="12 8"/>
+  <rect x="36" y="36" width="780" height="44" fill="none"/>
   <text class="lbl" x="38" y="68">System boundary &#8212; NeuroScan desktop application</text>
 
   <!-- ============ INPUT ============ -->
   <text class="hdr" x="40" y="116">INPUT</text>
 
   <g>
-    <rect x="40" y="140" width="340" height="130" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="40" y="140" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="210" y="186" text-anchor="middle">Brain MRI image</text>
     <text class="d" x="210" y="224" text-anchor="middle">One 2D slice is</text>
     <text class="d" x="210" y="252" text-anchor="middle">one screening unit</text>
   </g>
   <g>
-    <rect x="402" y="140" width="340" height="130" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="402" y="140" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="572" y="186" text-anchor="middle">Trained CNN model</text>
     <text class="d" x="572" y="224" text-anchor="middle">Bundled with</text>
     <text class="d" x="572" y="252" text-anchor="middle">the application</text>
   </g>
   <g>
-    <rect x="764" y="140" width="340" height="130" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="764" y="140" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="934" y="186" text-anchor="middle">User and setting</text>
     <text class="d" x="934" y="224" text-anchor="middle">Clinician or health</text>
     <text class="d" x="934" y="252" text-anchor="middle">worker, low-resource</text>
@@ -52,25 +51,25 @@
   <text class="hdr" x="40" y="316">PROCESS</text>
 
   <g>
-    <rect x="40" y="340" width="250" height="130" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="40" y="340" width="250" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="165" y="386" text-anchor="middle">Preprocess</text>
     <text class="d" x="165" y="424" text-anchor="middle">Resize and</text>
     <text class="d" x="165" y="452" text-anchor="middle">normalize</text>
   </g>
   <g>
-    <rect x="312" y="340" width="250" height="130" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="312" y="340" width="250" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="437" y="386" text-anchor="middle">Classify</text>
     <text class="d" x="437" y="424" text-anchor="middle">One ONNX</text>
     <text class="d" x="437" y="452" text-anchor="middle">forward pass</text>
   </g>
   <g>
-    <rect x="584" y="340" width="250" height="130" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="584" y="340" width="250" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="709" y="386" text-anchor="middle">Confidence</text>
     <text class="d" x="709" y="424" text-anchor="middle">Probability</text>
     <text class="d" x="709" y="452" text-anchor="middle">per class</text>
   </g>
   <g>
-    <rect x="856" y="340" width="250" height="130" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="856" y="340" width="250" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="981" y="386" text-anchor="middle">Activation map</text>
     <text class="d" x="981" y="424" text-anchor="middle">Regions behind</text>
     <text class="d" x="981" y="452" text-anchor="middle">the prediction</text>
@@ -80,56 +79,56 @@
   <text class="hdr" x="40" y="516">OUTPUT</text>
 
   <g>
-    <rect x="40" y="540" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="40" y="540" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="210" y="586" text-anchor="middle">Verdict</text>
     <text class="d" x="210" y="624" text-anchor="middle">Tumor present or</text>
     <text class="d" x="210" y="652" text-anchor="middle">no tumor</text>
   </g>
   <g>
-    <rect x="402" y="540" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="402" y="540" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="572" y="586" text-anchor="middle">Confidence score</text>
     <text class="d" x="572" y="624" text-anchor="middle">Probability of the</text>
     <text class="d" x="572" y="652" text-anchor="middle">predicted class</text>
   </g>
   <g>
-    <rect x="764" y="540" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="764" y="540" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="934" y="586" text-anchor="middle">Heatmap overlay</text>
     <text class="d" x="934" y="624" text-anchor="middle">Regions driving</text>
     <text class="d" x="934" y="652" text-anchor="middle">the prediction</text>
   </g>
 
   <g>
-    <rect x="40" y="694" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="40" y="694" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="210" y="740" text-anchor="middle">Batch results</text>
     <text class="d" x="210" y="778" text-anchor="middle">Every image in the</text>
     <text class="d" x="210" y="806" text-anchor="middle">selected folder</text>
   </g>
   <g>
-    <rect x="402" y="694" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="402" y="694" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="572" y="740" text-anchor="middle">Screening history</text>
     <text class="d" x="572" y="778" text-anchor="middle">Browsable record</text>
     <text class="d" x="572" y="806" text-anchor="middle">of past runs</text>
   </g>
   <g>
-    <rect x="764" y="694" width="340" height="130" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <rect x="764" y="694" width="340" height="130" rx="10" fill="none" stroke="#000000" stroke-width="2"/>
     <text class="t" x="934" y="740" text-anchor="middle">Exports</text>
     <text class="d" x="934" y="778" text-anchor="middle">CSV summary and</text>
     <text class="d" x="934" y="806" text-anchor="middle">annotated images</text>
   </g>
 
   <!-- ============ FLOW ARROWS ============ -->
-  <path d="M 572 270 V 336" stroke="#64748b" stroke-width="2.6" fill="none" marker-end="url(#arrow)"/>
-  <path d="M 572 470 V 536" stroke="#64748b" stroke-width="2.6" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 572 270 V 336" stroke="#000000" stroke-width="2.6" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 572 470 V 536" stroke="#000000" stroke-width="2.6" fill="none" marker-end="url(#arrow)"/>
 
   <!-- ============ SINGLE EXIT ARROW (crosses the boundary) ============ -->
-  <path d="M 572 824 V 886" stroke="#0f172a" stroke-width="3" fill="none" marker-end="url(#arrowStrong)"/>
+  <path d="M 572 824 V 886" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowStrong)"/>
 
   <!-- ============ CLINICIAN REVIEW (outside the boundary) ============ -->
   <g>
-    <rect x="330" y="890" width="500" height="150" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2.4"/>
+    <rect x="330" y="890" width="500" height="150" rx="10" fill="none" stroke="#000000" stroke-width="2.4"/>
     <text class="b" x="580" y="940" text-anchor="middle">Clinician review and</text>
     <text class="b" x="580" y="970" text-anchor="middle">triage decision</text>
-    <path d="M 390 994 H 770" stroke="#cbd5e1" stroke-width="1.4" fill="none"/>
+    <path d="M 390 994 H 770" stroke="#000000" stroke-width="1.4" fill="none"/>
     <text class="n" x="580" y="1028" text-anchor="middle">Outside the system boundary &#8212;</text>
     <text class="n" x="580" y="1056" text-anchor="middle">decision support only, not a diagnosis</text>
   </g>
