@@ -1,17 +1,499 @@
+@import "@fontsource-variable/inter/opsz.css";
+@import "@fontsource-variable/geist-mono/index.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+ * NeuroScan design tokens — "light box" materials.
+ *
+ * Values are RGB channels so Tailwind can apply opacity (`bg-accent/10`).
+ * Every ink/background pair used for text meets WCAG AA (4.5:1) on the
+ * surfaces it appears on.
+ *
+ * Materials: the window canvas is a cool light-box grey. Clinical content sits
+ * on solid paper. Chrome that floats above content (sidebar, sticky toolbars,
+ * menus, dialogs, toasts, the viewer HUD) is translucent glass, so it reads as
+ * a layer rather than a fixed strip. Glass never stacks on glass.
+ */
+:root {
+  --titlebar-h: 40px;
+  --statusbar-h: 28px;
+  --sidebar-w: 236px;
+
+  --ns-canvas: 236 238 242;
+  --ns-canvas-deep: 226 229 235;
+  --ns-surface: 255 255 255;
+  --ns-surface-muted: 247 248 250;
+  --ns-surface-sunken: 238 240 244;
+  --ns-line: 228 230 235;
+  --ns-line-strong: 204 207 214;
+
+  --ns-ink: 29 29 31;
+  --ns-ink-secondary: 72 72 77;
+  --ns-ink-muted: 99 99 104;
+  --ns-ink-faint: 112 112 118;
+
+  --ns-accent: 0 102 214;
+  --ns-accent-hover: 0 85 179;
+  --ns-accent-soft: 230 240 253;
+  --ns-accent-line: 184 212 247;
+  --ns-accent-ink: 0 82 176;
+
+  --ns-danger: 215 0 21;
+  --ns-danger-hover: 184 0 18;
+  --ns-danger-soft: 255 237 238;
+  --ns-danger-line: 249 196 199;
+  --ns-danger-ink: 178 0 18;
+
+  --ns-warning: 191 87 0;
+  --ns-warning-soft: 255 244 226;
+  --ns-warning-line: 246 211 160;
+  --ns-warning-ink: 148 64 0;
+
+  --ns-success: 36 138 61;
+  --ns-success-soft: 232 246 236;
+  --ns-success-line: 183 224 194;
+  --ns-success-ink: 26 110 48;
+
+  --ns-progress: 88 86 214;
+  --ns-progress-soft: 240 240 253;
+  --ns-progress-line: 205 204 246;
+  --ns-progress-ink: 68 66 186;
+
+  --ns-viewer-bg: 10 10 12;
+  --ns-viewer-panel: 24 24 28;
+  --ns-viewer-raised: 40 40 46;
+  --ns-viewer-line: 62 62 70;
+  --ns-viewer-ink: 236 236 240;
+  --ns-viewer-muted: 156 156 164;
+  --ns-viewer-accent: 100 170 255;
+
+  /* Glass materials (chrome only). */
+  --glass-sidebar: rgb(246 247 250 / 0.72);
+  --glass-bar: rgb(250 251 252 / 0.78);
+  --glass-overlay: rgb(252 252 253 / 0.86);
+  --glass-edge: rgb(255 255 255 / 0.7);
+  --glass-viewer: rgb(28 28 32 / 0.72);
+  --glass-viewer-edge: rgb(255 255 255 / 0.08);
+  --glass-blur: 20px;
+  --glass-saturate: 180%;
+
+  /* Motion. Strong curves; nothing on screen moves for longer than 300ms. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* shadcn / beUI aliases, so registry components follow these tokens. */
+  --background: rgb(var(--ns-canvas));
+  --foreground: rgb(var(--ns-ink));
+  --muted-foreground: rgb(var(--ns-ink-muted));
+
+  color-scheme: light;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (prefers-contrast: more) {
+  :root {
+    --ns-line: 160 164 172;
+    --ns-line-strong: 110 114 124;
+    --ns-ink-muted: 60 60 66;
+    --ns-ink-faint: 76 76 82;
+    --ns-viewer-line: 110 110 120;
+    --ns-viewer-muted: 200 200 208;
+    --glass-sidebar: rgb(246 247 250);
+    --glass-bar: rgb(250 251 252);
+    --glass-overlay: rgb(255 255 255);
+    --glass-viewer: rgb(28 28 32);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-sidebar: rgb(244 245 248);
+    --glass-bar: rgb(250 251 252);
+    --glass-overlay: rgb(255 255 255);
+    --glass-viewer: rgb(28 28 32);
+    --glass-blur: 0px;
+  }
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html,
+  body {
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    background-color: rgb(var(--ns-canvas));
+  }
+
+  body {
+    font-family: "Inter Variable", "Segoe UI Variable Text", "Segoe UI",
+      system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-feature-settings: "cv05", "cv08", "ss03";
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    color: rgb(var(--ns-ink));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* The interface is an instrument panel, not a document: chrome is not
+       selectable, but every value a clinician may need to copy is. */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Window canvas: a quiet light-box gradient so glass layers have depth to
+     sample. Neutral by design — colour is reserved for clinical meaning. */
+  #root {
+    background:
+      linear-gradient(180deg, rgb(var(--ns-canvas)) 0%, rgb(var(--ns-canvas-deep)) 100%);
+  }
+
+  /* Thin, unobtrusive scrollbars that still show position. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(0 0 0 / 0.18) transparent;
+  }
+
+  .viewer-surface,
+  .viewer-surface * {
+    scrollbar-color: rgb(255 255 255 / 0.18) transparent;
+  }
+
+  input,
+  textarea,
+  select,
+  [contenteditable],
+  .selectable,
+  .selectable * {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: "Geist Mono Variable", "Cascadia Mono", Consolas, ui-monospace,
+      monospace;
+    letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--ns-accent));
+    outline-offset: 2px;
+    scroll-margin-top: 72px;
+    scroll-margin-bottom: 64px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .viewer-surface :focus-visible {
+    outline-color: rgb(var(--ns-viewer-accent));
+  }
+
+  /* Ensure keyboard focus remains visible in Windows High Contrast Mode
+     even when a control uses a box-shadow focus halo. */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 2px solid CanvasText !important;
+      outline-offset: 2px !important;
+    }
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+    cursor: pointer;
+  }
+
+  input[type="range"] {
+    accent-color: rgb(var(--ns-accent));
+  }
+
+  .viewer-surface input[type="range"] {
+    accent-color: rgb(var(--ns-viewer-accent));
+  }
+}
+
+@layer components {
+  /* --- Materials -------------------------------------------------------- */
+
+  .material-sidebar {
+    background-color: var(--glass-sidebar);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge),
+      0 0 0 0.5px rgb(0 0 0 / 0.08),
+      0 8px 28px -12px rgb(16 18 27 / 0.18);
+  }
+
+  /* Sticky toolbars that content scrolls beneath. No hard divider: a soft
+     edge only appears once content is actually underneath (see .is-stuck). */
+  .material-bar {
+    background-color: var(--glass-bar);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+
+  .material-overlay {
+    background-color: var(--glass-overlay);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge),
+      0 0 0 0.5px rgb(0 0 0 / 0.12),
+      0 16px 40px -8px rgb(16 18 27 / 0.24),
+      0 4px 12px -4px rgb(16 18 27 / 0.1);
+  }
+
+  .material-viewer {
+    background-color: var(--glass-viewer);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 var(--glass-viewer-edge),
+      0 0 0 0.5px rgb(0 0 0 / 0.6),
+      0 10px 30px -10px rgb(0 0 0 / 0.6);
+  }
+
+  /* Solid clinical content. */
+  .paper {
+    background-color: rgb(var(--ns-surface));
+    box-shadow:
+      0 0 0 0.5px rgb(0 0 0 / 0.08),
+      0 1px 2px rgb(16 18 27 / 0.04),
+      0 2px 8px -2px rgb(16 18 27 / 0.04);
+  }
+
+  /* --- Typography ------------------------------------------------------- */
+
+  /* Tracking is size-specific: large type tightens, small type loosens. */
+  .type-display {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 650;
+    letter-spacing: -0.022em;
+  }
+
+  .type-title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 650;
+    letter-spacing: -0.017em;
+  }
+
+  .type-headline {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: -0.009em;
+  }
+
+  .type-eyebrow {
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Numbers that sit in columns or change in place do not jitter. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- Interaction ------------------------------------------------------ */
+
+  /* Press feedback lives on pointer-down and is instant. */
+  .pressable {
+    transition:
+      transform 140ms var(--ease-out),
+      background-color 140ms ease,
+      color 140ms ease,
+      opacity 140ms ease;
+  }
+
+  .pressable:active:not(:disabled):not([aria-disabled="true"]) {
+    transform: scale(0.97);
+  }
+
+  /* Popovers, menus and tooltips grow from their trigger. */
+  .popover-motion {
+    transform-origin: var(--radix-popper-transform-origin, var(--radix-dropdown-menu-content-transform-origin, var(--radix-menubar-content-transform-origin, center)));
+  }
+
+  .popover-motion[data-state="open"] {
+    animation: ns-pop-in 160ms var(--ease-out) both;
+  }
+
+  .popover-motion[data-state="closed"] {
+    animation: ns-pop-out 100ms var(--ease-out) both;
+  }
+
+  .tooltip-motion[data-state="delayed-open"] {
+    animation: ns-pop-in 125ms var(--ease-out) both;
+  }
+
+  .tooltip-motion[data-state="instant-open"] {
+    animation: none;
+  }
+
+  /* Modal materialises: scale + blur arrive together, centred. */
+  .dialog-motion[data-state="open"] {
+    animation: ns-materialize 220ms var(--ease-out) both;
+  }
+
+  .dialog-motion[data-state="closed"] {
+    animation: ns-dematerialize 140ms var(--ease-out) both;
+  }
+
+  .scrim-motion[data-state="open"] {
+    animation: ns-fade-in 200ms var(--ease-out) both;
+  }
+
+  .scrim-motion[data-state="closed"] {
+    animation: ns-fade-out 140ms var(--ease-out) both;
+  }
+}
+
+@keyframes ns-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ns-pop-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes ns-materialize {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes ns-dematerialize {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes ns-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ns-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion keeps opacity feedback but removes movement and scale. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .pressable:active:not(:disabled):not([aria-disabled="true"]) {
+    transform: none;
+  }
+}
+
+/*
+ * Printing: only the report sheet is printed. The application chrome, the
+ * navigation and every on-screen control are removed.
+ */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+
+  html,
+  body,
+  #root {
+    height: auto;
+    overflow: visible;
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-root {
+    position: static !important;
+    overflow: visible !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+  }
 }

@@ -1,23 +1,50 @@
-import React from "react";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
 import "./index.css";
-
-// Import the generated route tree
+import { ToastProvider } from "@/components/ui/toast";
+import { TooltipProvider } from "@/components/ui/Tooltip";
+import { connectBackendEvents } from "@/lib/api/events";
+import { createQueryClient } from "@/lib/api/queries";
+import { SessionProvider } from "@/lib/session";
 import { routeTree } from "./routeTree.gen";
 
-// Create a new router instance
-const router = createRouter({ routeTree });
+const queryClient = createQueryClient();
 
-// Register the router instance for type inference
+const router = createRouter({
+  routeTree,
+  context: { queryClient },
+  defaultPreload: false,
+  scrollRestoration: false,
+});
+
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+function App() {
+  useEffect(() => connectBackendEvents(queryClient), []);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <ToastProvider>
+          <SessionProvider>
+            <RouterProvider router={router} />
+          </SessionProvider>
+        </ToastProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+const root = document.getElementById("root");
+if (!root) throw new Error("The #root element is missing from index.html.");
+
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <App />
+  </React.StrictMode>,
 );
