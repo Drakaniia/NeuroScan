@@ -77,6 +77,9 @@ jobs:
       - name: Check formatting
         run: cargo fmt --check
 
+      - name: Ensure distDir exists
+        run: mkdir -p ../dist
+
       - name: Clippy
         run: cargo clippy --all-targets -- -D warnings
 

@@ -20,11 +20,7 @@ jobs:
             label: ' arm64'
             rust_target: aarch64-apple-darwin
             args: '--target aarch64-apple-darwin'
-          - platform: macos-latest
-            label: ' x64'
-            rust_target: x86_64-apple-darwin
-            args: '--target x86_64-apple-darwin'
-          - platform: ubuntu-22.04
+          - platform: ubuntu-24.04
             label: ''
             rust_target: ''
             args: ''
@@ -60,8 +56,10 @@ jobs:
             apps/desktop/src-tauri -> target
 
       - name: Install Linux Tauri system dependencies
-        if: matrix.platform == 'ubuntu-22.04'
+        if: matrix.platform == 'ubuntu-24.04'
         run: |
+          echo "deb http://archive.ubuntu.com/ubuntu jammy main universe" | sudo tee /etc/apt/sources.list.d/jammy.list
+          echo "deb http://security.ubuntu.com/ubuntu jammy-security main universe" | sudo tee -a /etc/apt/sources.list.d/jammy.list
           sudo apt-get update
           sudo apt-get install -y \
             libwebkit2gtk-4.0-dev \
@@ -80,6 +78,7 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NO_STRIP: true
         with:
           projectPath: apps/desktop
           tagName: ${{ github.ref_name }}
