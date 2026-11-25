@@ -1,0 +1,32 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "suspicious": {
+        "noUnknownAtRules": "off",
+        "noArrayIndexKey": "error"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "error"
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!**/node_modules/**",
+      "!apps/desktop/src/routeTree.gen.ts",
+      "!**/*.lock",
+      "!bun.lock",
+      "!.freebuff/**",
+      "!docs/**",
+      "!apps/desktop/src-tauri/**"
+    ]
+  }
+}

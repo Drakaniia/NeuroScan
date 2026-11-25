@@ -29,7 +29,7 @@ NeuroScan/
 - **React** - UI framework
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
-- **Bun** - Package manager
+- **pnpm** - Package manager
 
 ## Key Rules
 
@@ -48,7 +48,7 @@ When working with thesis chapters or research materials:
 
 ## Development Commands
 
-- `bun install` - Install all dependencies
-- `bun run dev` - Run desktop app dev server
-- `bun run tauri:dev` - Run Tauri dev mode
-- `bun run tauri:build` - Build for production
+- `pnpm install` - Install all dependencies
+- `pnpm run dev` - Run desktop app dev server
+- `pnpm run tauri:dev` - Run Tauri dev mode
+- `pnpm run tauri:build` - Build for production
